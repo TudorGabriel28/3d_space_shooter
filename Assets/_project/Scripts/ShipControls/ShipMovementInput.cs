@@ -8,7 +8,7 @@ public class ShipMovementInput : MonoBehaviour
     
     void Start()
     {
-        MovementControls = ShipInputManager.GetInputcontrols(_inputType);
+        MovementControls = ShipInputManager.GetMovementControls(_inputType);
     }
 
     void OnDestroy()
