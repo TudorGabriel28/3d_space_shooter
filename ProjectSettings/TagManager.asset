@@ -3,21 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FollowCamera
+  - CockpitCamera
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Background
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - PlayerProjectile
+  - PlayerShield
+  - Enemy
+  - EnemyProjectile
+  - EnemyShield
+  - Asteroid
   - 
   - 
   - 
