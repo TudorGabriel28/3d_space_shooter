@@ -1,4 +1,17 @@
 {
-	"name": "3DSpaceShooter",
-	"references":[ "GUID:ff1dc0ebe1992814b8e099301584ef40" ]
+    "name": "3DSpaceShooter",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ff1dc0ebe1992814b8e099301584ef40",
+        "GUID:0150b4d658f08ac4f89331a2268ad8bc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
