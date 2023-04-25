@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -43,17 +42,17 @@ public class Projectile : MonoBehaviour
         if (OutOfFuel) Destroy(gameObject);
     }
 
-    public void Init(int launchForce, int damage, float range)
+    public void Init(int launchForce, int damage, float range, Vector3 velocity, Vector3 angularVelocity)
     {
-        Debug.Log($"Projectile({launchForce}, {damage}, {range}");
         _launchForce = launchForce;
         _damage = damage;
         _range = range;
+        _rigidBody.velocity = velocity;
+        _rigidBody.angularVelocity = angularVelocity;
     }
     
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(($"projectile collided with {collision.collider.name}"));
         IDamageable damageable = collision.collider.gameObject.GetComponent<IDamageable>();
         if (damageable != null)
         {
