@@ -44,7 +44,8 @@ public class EnemyShipManager : MonoBehaviour
 
     void Update()
     {
-        if (CanSpawnEnemyShip)
+
+        if (CanSpawnEnemyShip && GameManager.Instance.GameState != GameState.GameOver)
         {
             SpawnEnemyShip();
         }
@@ -74,4 +75,6 @@ public class EnemyShipManager : MonoBehaviour
 
         ++MaxEnemies;
     }
+
+  
 }

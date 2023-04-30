@@ -1744,9 +1744,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyShipPrefabs:
   - {fileID: 7775465932746545343, guid: a004bfdc44892744da9c87e4c4210100, type: 3}
-  _maxEnemies: 1
-  _firstSpawnInterval: 10
-  _spawnInterval: 30
+  _maxEnemies: 10
+  _firstSpawnInterval: 5
+  _spawnInterval: 10
   _minSpawnRange: 500
   _maxSpawnRange: 2000
 --- !u!1 &651228388
@@ -5628,6 +5628,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8547355818315142656, guid: 5f13c0258510c894487626306b657519, type: 3}
+      propertyPath: _shipData
+      value: 
+      objectReference: {fileID: 11400000, guid: b4925c13b1d31504691100977b111b39, type: 2}
     - target: {fileID: 8547355818315142656, guid: 5f13c0258510c894487626306b657519, type: 3}
       propertyPath: _weaponControls
       value: 

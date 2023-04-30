@@ -81,6 +81,7 @@ public class EnemyShipController : ShipController
 
     EnemyShipState GetNextState()
     {
+        if (GameManager.Instance.GameState == GameState.GameOver) return EnemyShipState.None;
         EnemyShipState newState = _state switch
         {
             EnemyShipState.Patrol => Patrol(),
