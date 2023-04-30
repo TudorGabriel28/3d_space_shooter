@@ -73,11 +73,11 @@ public class GameManager : MonoBehaviour
         MusicManager.Instance.PlayPatrolMusic();
     }
 
-    public void PlayerWon()
+    public void PlayerLost()
     {
         MusicManager.Instance.PlayGameOverMusic();
         SetGameState(GameState.GameOver);    
-    }
+    }   
     
     void QuitGame()
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -10,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TargetIndicator _targetIndicatorPrefab;
     [SerializeField] Canvas _mainCanvas;
     [SerializeField] TMP_Text _scoreText, _highScoreText;
+    [SerializeField] GameObject _gameOverScreen;
 
     List<TargetIndicator> _targetIndicators;
 
@@ -28,6 +30,7 @@ public class UIManager : MonoBehaviour
     void OnEnable()
     {
         SubscribeToEvents();
+        _gameOverScreen.SetActive(false);
     }
 
     void OnDisable()
@@ -70,12 +73,28 @@ public class UIManager : MonoBehaviour
     void SubscribeToEvents()
     {
         SubscribeToScoreManagerEvents();
+        SubscribeToGameManagerEvents();
     }
+
+    
 
     void UnsubscribeFromEvents()
     {
         UnsubscribeFromScoreManagerEvents();
+        UnsubscribeToGameManagerEvents();
     }
+
+    private void SubscribeToGameManagerEvents()
+    {
+        GameManager.Instance.GameStateChanged += OnGameStateChanged;
+    }
+
+    private void UnsubscribeToGameManagerEvents()
+    {
+        GameManager.Instance.GameStateChanged -= OnGameStateChanged;
+    }
+
+    
 
     void SubscribeToScoreManagerEvents()
     {
@@ -90,6 +109,11 @@ public class UIManager : MonoBehaviour
         if (!ScoreManager.Instance) return;
         ScoreManager.Instance.ScoreChanged -= OnScoreChanged;
         ScoreManager.Instance.HighScoreChanged -= OnHighScoreChanged;    
+    }
+
+    private void OnGameStateChanged(GameState gameState)
+    {
+        _gameOverScreen.SetActive(gameState == GameState.GameOver);
     }
 
     void OnScoreChanged(int score)

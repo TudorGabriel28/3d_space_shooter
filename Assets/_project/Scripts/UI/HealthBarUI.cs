@@ -42,9 +42,10 @@ public class HealthBarUI : MonoBehaviour
     void UpdateHealthBar()
     {
         if (_damageHandler == null) return;
-        if (_damageHandler.Health == 0)
+        if (_damageHandler.Health <= 0)
         {
             _targetFillAmount = 0;
+            GameManager.Instance.PlayerLost();
             return;
         }
 

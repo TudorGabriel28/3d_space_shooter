@@ -74,6 +74,8 @@ public class RadarScreen : MonoBehaviour
 
     void LateUpdate()
     {
+        if (GameManager.Instance.GameState == GameState.GameOver) return;
+
         DrawTargetBlips();
         UIManager.Instance.UpdateTargetIndicators(_targetsInRange, LockedOnTarget ? LockedOnTarget.GetInstanceID() : -1);
         if (TargetsInRange > 0)
@@ -95,6 +97,8 @@ public class RadarScreen : MonoBehaviour
         int size = 0;
         while (true)
         {
+            if (GameManager.Instance && GameManager.Instance.GameState == GameState.GameOver) yield break;
+
             _targetsInRange.Clear();
             LockedOnTarget = null;
             float closest = _lockOnRange;
