@@ -10,6 +10,8 @@ public class ScoreManager : MonoBehaviour
     public int Score { get; private set; }
     public int HighScore { get; private set; }
 
+    const string HighScoreKey = "HighScore";
+
     public void ResetScore()
     {
         Score = 0;
@@ -18,6 +20,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddPoints(int points)
     {
+        if (GameManager.Instance.GameState == GameState.GameOver) return;
         Score += points;
         ScoreChanged(Score);
         if (Score <= HighScore) return;
@@ -34,5 +37,16 @@ public class ScoreManager : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    private void Start()
+    {
+        HighScore = PlayerPrefs.GetInt(HighScoreKey, 0);
+        HighScoreChanged(HighScore);
+    }
+
+    private void OnDisable()
+    {
+        PlayerPrefs.SetInt(HighScoreKey, HighScore);
     }
 }
