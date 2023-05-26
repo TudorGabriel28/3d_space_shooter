@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class RadarScreen : MonoBehaviour
 {
     [SerializeField] GameObject _blipPrefab;
     [SerializeField] LayerMask _layerMask;
-    [SerializeField] [Range(100, 5000)] float _radarRange = 500f;
-    [SerializeField] [Range(0, 1000)] float _lockOnRange = 1000f;
-    [SerializeField] [Range(0, 45)] float _lockOnRadius = 15f;
+    [SerializeField][Range(100, 5000)] float _radarRange = 500f;
+    [SerializeField][Range(0, 1000)] float _lockOnRange = 1000f;
+    [SerializeField][Range(0, 45)] float _lockOnRadius = 15f;
     [SerializeField] int _maxTargets = 200;
-    [SerializeField] float _refreshDelay = 0.25f;
+    [SerializeField] float _refreshDelay = 3f;
     [SerializeField] GameObject _radarScreen;
     [SerializeField] Transform _player;
 
@@ -36,7 +39,7 @@ public class RadarScreen : MonoBehaviour
     public Transform LockedOnTarget { get; private set; }
     int TargetsInRange => _targetsInRange.Count;
     bool InCombat { get; set; }
-    
+
     void Awake()
     {
         if (!_radarScreen) return;
@@ -104,18 +107,23 @@ public class RadarScreen : MonoBehaviour
             float closest = _lockOnRange;
             var myPosition = _transform.position;
             size = Physics.OverlapSphereNonAlloc(_transform.position, _radarRange, _targetColliders, _layerMask);
+
             for (int i = 0; i < size; ++i)
             {
                 var target = GetRootTransform(i);
                 if (!target.gameObject.activeSelf) continue;
 
+
                 closest = TryLockOnTarget(target, myPosition, closest);
-                
+
+
+
                 if (!_targetsInRange.Contains(target))
                 {
                     _targetsInRange.Add(target);
                 }
             }
+
             yield return _waitForSeconds;
         }
     }
@@ -126,6 +134,7 @@ public class RadarScreen : MonoBehaviour
         var distance = Vector3.Distance(targetPosition, myPosition);
         var direction = targetPosition - myPosition;
         var angle = Vector3.Angle(direction, _transform.forward);
+
         if (distance < closest && angle < _lockOnRadius)
         {
             closest = distance;
@@ -134,6 +143,9 @@ public class RadarScreen : MonoBehaviour
 
         return closest;
     }
+
+
+
 
     void DrawTargetBlips()
     {
@@ -211,7 +223,7 @@ public class RadarScreen : MonoBehaviour
         {
             root = root.parent;
         }
-        
+
         return root;
     }
 }
