@@ -1,3 +1,4 @@
+using System.Data;
 using UnityEngine;
 
 public class Asteroid : MonoBehaviour, IDamageable
@@ -6,7 +7,8 @@ public class Asteroid : MonoBehaviour, IDamageable
     [SerializeField] private Detonator _explosionPrefab;
 
     private Transform _transform;
-
+    private readonly float _minRelativeVelocityMagnitude = 50f; // Minimum velocity magnitude required to apply damage
+    private readonly int _damageFactor = 5; // Damage factor to apply to the damage taken by the asteroid
     private void Awake()
     {
         _transform = transform;
@@ -30,5 +32,22 @@ public class Asteroid : MonoBehaviour, IDamageable
         }
         
         Destroy(gameObject);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        float relativeVelocityMagnitude = collision.relativeVelocity.magnitude;
+
+        // if collision is with a rigidbody, check if it has a velocity greater than 20f
+        if (collision.rigidbody != null &&  relativeVelocityMagnitude > _minRelativeVelocityMagnitude)
+        {
+            Vector3 hitPosition = collision.GetContact(0).point;
+            TakeDamage(1000, hitPosition);
+
+            IDamageable damageable = collision.collider.gameObject.GetComponent<IDamageable>();            
+            damageable?.TakeDamage(_damageFactor * Mathf.RoundToInt(relativeVelocityMagnitude), hitPosition);
+        }
+
+
     }
 }

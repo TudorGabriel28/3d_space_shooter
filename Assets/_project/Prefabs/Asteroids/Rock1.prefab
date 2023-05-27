@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 1423744255962983072}
   - component: {fileID: 5856475624409997298}
   - component: {fileID: 725291530066673247}
-  - component: {fileID: 6738830386753980225}
   - component: {fileID: -5142852349988003154}
+  - component: {fileID: 6738830386753980225}
+  - component: {fileID: -4272780217148622418}
+  - component: {fileID: -808638708998179375}
   m_Layer: 12
   m_Name: Rock1
   m_TagString: Untagged
@@ -34,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1423744255962983072
 MeshFilter:
@@ -96,26 +98,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6738830386753980225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4800253088770530781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a1b87a4b57994445bdf46868439e5f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fracturedAsteroidPrefab: {fileID: 6663420446951431894, guid: e8fb685ed452db5409d7018d6f9e4c58, type: 3}
-  _explosionPrefab: {fileID: 8844277550991517175, guid: b0a4745119c2c7847b41fec5702ab773, type: 3}
 --- !u!136 &-5142852349988003154
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -130,3 +118,44 @@ CapsuleCollider:
   m_Height: 3.178595
   m_Direction: 1
   m_Center: {x: 0.1767565, y: -0.024088502, z: -0.29198048}
+--- !u!114 &6738830386753980225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800253088770530781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1b87a4b57994445bdf46868439e5f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fracturedAsteroidPrefab: {fileID: 6663420446951431894, guid: e8fb685ed452db5409d7018d6f9e4c58, type: 3}
+  _explosionPrefab: {fileID: 8844277550991517175, guid: b0a4745119c2c7847b41fec5702ab773, type: 3}
+--- !u!114 &-4272780217148622418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800253088770530781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747103fd6872f994fbed3ab3423e1f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _points: 20
+--- !u!114 &-808638708998179375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4800253088770530781}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35fd54ac079a8b47aa6549789157333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconPrefab: {fileID: 4922837886278913688, guid: 022b7ca8235f3684f9ef95cf834e6a65, type: 3}
+  clampOnRadar: 0

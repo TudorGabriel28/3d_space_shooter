@@ -7600,6 +7600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9069024476142206089}
   - component: {fileID: 3867701429976551897}
+  - component: {fileID: 497983175177874703}
   m_Layer: 0
   m_Name: RockFracture2
   m_TagString: Untagged
@@ -7722,7 +7723,7 @@ Transform:
   - {fileID: 6596708043339603762}
   - {fileID: 7259750812543145739}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3867701429976551897
 MonoBehaviour:
@@ -7737,6 +7738,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 10
+--- !u!114 &497983175177874703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6106080774327275514}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35fd54ac079a8b47aa6549789157333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconPrefab: {fileID: 4922837886278913688, guid: 022b7ca8235f3684f9ef95cf834e6a65, type: 3}
+  clampOnRadar: 0
 --- !u!1 &6271361659713631009
 GameObject:
   m_ObjectHideFlags: 0

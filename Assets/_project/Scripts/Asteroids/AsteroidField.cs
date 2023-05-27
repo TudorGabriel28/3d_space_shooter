@@ -1,3 +1,4 @@
+using Ilumisoft.RadarSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,18 +8,19 @@ using Random = UnityEngine.Random;
 public class AsteroidField : MonoBehaviour
 {
     [SerializeField] [Range(100, 1000)] private int _asteroidCount = 500;
-    [SerializeField] [Range(100f, 500f)] private float _radius = 300f;
-    [SerializeField] [Range(1f, 5f)] private float _maxScale = 5f;
-    [SerializeField] private List<GameObject> _asteroidPrefabs;
+    [SerializeField] [Range(100f, 1000f)] private float _radius = 300f;
+    [SerializeField] [Range(1f, 10f)] private float _maxScale = 5f;
+    [SerializeField] List<GameObject> _asteroidPrefabs;
     
-    private Transform _transform;
+    Transform _transform;
+    public float Radius => _radius;
 
-    private void Awake()
+    void Awake()
     {
         _transform = transform;
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
         SpawnAsteroids();
     }
@@ -33,6 +35,12 @@ public class AsteroidField : MonoBehaviour
             asteroid.transform.localScale = new Vector3(scale, scale, scale);
             asteroid.transform.position += Random.insideUnitSphere * _radius;
             asteroid.GetComponent<Rigidbody>()?.AddTorque(Random.insideUnitCircle * Random.Range(0f, 50f));
+
+            if(scale >= 9.5f)
+            {
+                Locatable locatable = asteroid.GetComponent<Locatable>();
+                locatable.enabled = true;
+            }
         }
     }
 }
