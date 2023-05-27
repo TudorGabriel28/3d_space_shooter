@@ -1,3 +1,4 @@
+using Ilumisoft.RadarSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,6 +35,12 @@ public class AsteroidField : MonoBehaviour
             asteroid.transform.localScale = new Vector3(scale, scale, scale);
             asteroid.transform.position += Random.insideUnitSphere * _radius;
             asteroid.GetComponent<Rigidbody>()?.AddTorque(Random.insideUnitCircle * Random.Range(0f, 50f));
+
+            if(scale >= 9.5f)
+            {
+                Locatable locatable = asteroid.GetComponent<Locatable>();
+                locatable.enabled = true;
+            }
         }
     }
 }
