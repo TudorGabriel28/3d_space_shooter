@@ -76,17 +76,18 @@ public class GameManager : MonoBehaviour
     public void PlayerLost()
     {
         MusicManager.Instance.PlayGameOverMusic();
-        SetGameState(GameState.GameOver);    
+        SetGameState(GameState.GameOver);  
+        Cursor.visible = true;
     }   
     
     void QuitGame()
     {
         GameState = GameState.GameOver;
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        // todo handle WebGL
-        Application.Quit();
-#endif
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                // todo handle WebGL
+                Application.Quit();
+        #endif
     }
 }

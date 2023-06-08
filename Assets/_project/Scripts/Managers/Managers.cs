@@ -13,7 +13,7 @@ public class Managers : MonoBehaviour
         else
         {
             _instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
         }
     }
 }
