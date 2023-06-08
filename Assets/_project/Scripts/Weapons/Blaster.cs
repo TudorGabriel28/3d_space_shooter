@@ -55,7 +55,7 @@ public class Blaster : MonoBehaviour
         Rigidbody rigidBody,
         float maxCapacitor=1000f,
         float costPerShot=50f,
-        float rechargeRate=20f)
+        float rechargeRate=40f)
     {
         _weaponInput = weaponInput;
         _coolDownTime = coolDown;
