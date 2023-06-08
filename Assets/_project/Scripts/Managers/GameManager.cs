@@ -76,7 +76,8 @@ public class GameManager : MonoBehaviour
     public void PlayerLost()
     {
         MusicManager.Instance.PlayGameOverMusic();
-        SetGameState(GameState.GameOver);    
+        SetGameState(GameState.GameOver);  
+        Cursor.visible = true;
     }   
     
     void QuitGame()

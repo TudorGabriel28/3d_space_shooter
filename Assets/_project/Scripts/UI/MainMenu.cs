@@ -36,6 +36,8 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = true;
+
         if (PlayerPrefs.HasKey("LeaderboardData"))
         {
     
