@@ -82,11 +82,11 @@ public class GameManager : MonoBehaviour
     void QuitGame()
     {
         GameState = GameState.GameOver;
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        // todo handle WebGL
-        Application.Quit();
-#endif
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                // todo handle WebGL
+                Application.Quit();
+        #endif
     }
 }
