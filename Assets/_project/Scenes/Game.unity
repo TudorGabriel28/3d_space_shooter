@@ -1141,7 +1141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &439266888
 Transform:
   m_ObjectHideFlags: 0
@@ -2021,7 +2021,7 @@ MonoBehaviour:
   - {fileID: 7775465932746545343, guid: a004bfdc44892744da9c87e4c4210100, type: 3}
   _maxEnemies: 10
   _firstSpawnInterval: 5
-  _spawnInterval: 10
+  _spawnInterval: 30
   _minSpawnRange: 500
   _maxSpawnRange: 2000
 --- !u!1 &651228388
