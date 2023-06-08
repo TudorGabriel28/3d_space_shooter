@@ -7,10 +7,11 @@ using Random = UnityEngine.Random;
 
 public class AsteroidField : MonoBehaviour
 {
-    [SerializeField] [Range(100, 1000)] private int _asteroidCount = 500;
+    [SerializeField] [Range(10, 500)] private int _asteroidCount = 100;
     [SerializeField] [Range(100f, 1000f)] private float _radius = 300f;
     [SerializeField] [Range(1f, 10f)] private float _maxScale = 5f;
     [SerializeField] List<GameObject> _asteroidPrefabs;
+    [SerializeField] [Range(1f, 9.9f)] private float minScaleToShowOnRadar = 8f;
     
     Transform _transform;
     public float Radius => _radius;
@@ -36,7 +37,7 @@ public class AsteroidField : MonoBehaviour
             asteroid.transform.position += Random.insideUnitSphere * _radius;
             asteroid.GetComponent<Rigidbody>()?.AddTorque(Random.insideUnitCircle * Random.Range(0f, 50f));
 
-            if(scale >= 9.5f)
+            if(scale >= minScaleToShowOnRadar)
             {
                 Locatable locatable = asteroid.GetComponent<Locatable>();
                 locatable.enabled = true;
